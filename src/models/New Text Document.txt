@@ -1,0 +1,15 @@
+# File: C:\Projects\BillingSoftware\src\models\user.py
+
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from .base import Base
+
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    username = Column(String(50), unique=True, nullable=False)
+    password = Column(String(100), nullable=False)  # Store hashed passwords in practice
+    shop_id = Column(Integer, ForeignKey('shops.id'), nullable=False)
+
+    shop = relationship("Shop", back_populates="users")

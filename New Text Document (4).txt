@@ -1,0 +1,6 @@
+connection = pymysql.connect(
+    host='localhost',
+    user='EDITH',
+    password='Edith@1891',
+    database='billing_system'
+)
